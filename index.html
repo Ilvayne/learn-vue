@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Marvel Heroes</title>
+  </head>
+<body>
+  <div id="app">
+      <table v-if="show">
+        <thead>
+          <tr>
+              <h3>Heroes quantity: {{heroesCount}} </h3>
+              <button class="button" data-toggle="tooltip" data-placement="top" v-bind:title="tooltip" v-on:click = "changeVisibility">
+                {{changeBtnName}} 
+              </button>
+          </tr>
+          <tr >
+            <th v-for="item in heroesList">
+              {{item}}
+            </th>
+          </tr>
+        </thead>
+        <tbody v-if="show">
+          <tr v-for="item in heroes">
+            <td> {{item.name}} </td>
+            <td> {{item.surname}} </td>
+            <td> {{item.heroName}} </td>
+            <td> 
+              <img v-if="item.img" v-bind:src="item.img" height="200">
+              <img v-else v-bind:title="imgTooltip" src="https://www.screengeek.net/wp-content/uploads/2018/05/thanos-avengers-infinity-war.jpg" height="82">       
+            </td> 
+          </tr>
+        </tbody> 
+      </table>
+    </div>
+</body>
+  <script src="js/vue.js"></script>
+  <script src="js/main.js"></script>
+</html>
